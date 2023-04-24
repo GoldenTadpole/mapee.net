@@ -3,6 +3,7 @@
     <head>
         <title>GitHub - Mapee</title>
         <link rel="icon" type="image/x-icon" href="asset\base\icon.ico">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     </head>
 
     <style>.async-hide { opacity: 0 !important} </style>
@@ -11,15 +12,11 @@
     (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
     })(window,document.documentElement,'async-hide','dataLayer',50,
     {'CONTAINER_ID':true});</script>
-
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript" src="scripts/version-info.js"></script>
     <script type="text/javascript" src="scripts/banner.js"></script>
-    <script>
-        $(function(){
-            $("#base_page").load("banner_nav.html");
-        });
-    </script>
     <script>
         window.onload = window_onload;
 
