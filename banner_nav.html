@@ -1,0 +1,112 @@
+<body style="background-color:#0C0F11;">
+    <div class="banner" id="base_page">      
+        <style>
+            .banner {
+                width: 1000px;
+                overflow: hidden;
+                text-align: center;
+                position: relative;
+                margin: 0 auto;
+            }
+    
+            .crop {
+                width: 1000px;
+                height: 250px;
+                overflow: hidden;
+                text-align: center;
+                position: relative;
+                margin: 0 auto;
+            }
+    
+            .crop img {
+                margin: -445px 0px 0px -445px;
+            }
+    
+            .crop::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 70%;
+                background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.9));
+                background-size: 100% 150%;
+                z-index: 1;
+            }
+    
+            .title_label {
+                position: absolute;
+                top: 35%;
+                left: 5%;
+                width: 100%;
+                text-align: left;
+                font-size: 46px;
+                font-family: 'Linux Libertine G', 'Arial', 'sans-serif';
+                font-weight: 500;
+                color: white;
+                text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+                z-index: 2;
+            }
+            .title_version_label {
+                position: absolute;
+                top: 43%;
+                left: 19.25%;
+                width: 100%;
+                text-align: left;
+                font-size: 18px;
+                font-family: 'Linux Libertine G', 'Arial', 'sans-serif';
+                line-height: 140%;
+                color: lightgray;
+                text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+                z-index: 2;
+            }
+            .title_description_label {
+                position: absolute;
+                top: 60%;
+                left: 5.25%;
+                width: 100%;
+                text-align: left;
+                font-size: 18px;
+                font-family: 'Linux Libertine G', 'Arial', 'sans-serif';
+                line-height: 140%;
+                color: white;
+                text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+                z-index: 2;
+            }
+    
+            nav {
+                background-color: transparent;
+                overflow: hidden;
+            }
+            nav a {
+                float: left;
+                color: lightgray;
+                text-align: center;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 18px;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            nav a:hover {
+                background-color: #B2DAF4;
+                color: black;
+            }
+        </style>
+        
+        <div class="crop">
+            <img src="asset\base\banner.png" />
+        
+            <div class="title_label">Mapee</div>
+            <div class="title_version_label">v1.0.0</div>
+            <div class="title_description_label">A simple, yet powerful Minecraft mapper.<br />Can render worlds from 1.3 beta to the newest release.</div>
+        </div>
+
+        <nav>
+            <a id="home_nav_button" href="home.html">home</a>
+            <a id="download_nav_button" href="download.html">download</a>
+            <a id="wiki_nav_button" href="wiki.html">wiki</a>
+            <a id="gallery_nav_button" href="gallery.html">gallery</a>
+            <a id="github_nav_button" href="github.html">github</a>
+        </nav>
+    </div>
+</body>

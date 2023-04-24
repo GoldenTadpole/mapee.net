@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home - Mapee</title>
+        <link rel="icon" href="asset\base\icon.ico" type="image/x-icon">
+    </head>
+
+    <style>.async-hide { opacity: 0 !important} </style>
+    <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+    h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+    (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+    })(window,document.documentElement,'async-hide','dataLayer',50,
+    {'CONTAINER_ID':true});</script>
+
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#base_page").load("banner_nav.html");
+        });
+    </script>
+
+    <style>
+        .content {
+            width: 1000px;
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .content_child{
+            height: 500px;
+            position: relative;
+            top: 10px;
+            left: 15px;
+        }
+
+        .header_label {
+            width: 100%;
+            text-align: left;
+            font-size: 28px;
+            font-family: 'Segoe UI', 'Arial', 'sans-serif';
+            font-weight: 100;
+            color: white;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+            z-index: 2;
+        }
+
+        #home_nav_button {
+            background-color: #354249;
+        }
+        #home_nav_button:hover {
+            background-color: #B2DAF4;
+            color: black;
+        }
+    </style>
+
+    <body style="background-color:#0C0F11;margin:15px;">
+        <div id="base_page"></div>>
+
+        <div class="content">
+            <div class="content_child">
+                <div class="header_label">What is Mapee?</div>
+            </div>
+        </div>
+    </body>
+</html>
