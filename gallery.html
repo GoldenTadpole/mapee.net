@@ -12,11 +12,21 @@
     })(window,document.documentElement,'async-hide','dataLayer',50,
     {'CONTAINER_ID':true});</script>
 
-    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="scripts/version-info.js"></script>
+    <script type="text/javascript" src="scripts/banner.js"></script>
     <script>
         $(function(){
             $("#base_page").load("banner_nav.html");
         });
+    </script>
+    <script>
+        window.onload = window_onload;
+
+        async function window_onload() {
+            const info = await loadXml("info/installer-info.xml");
+            setUpperVersionLabel(info);
+        }
     </script>
 
     <style>
@@ -28,7 +38,7 @@
             margin: 0 auto;
         }
 
-        .content_child {
+        .content_child{
             height: 500px;
             position: relative;
             top: 10px;
@@ -40,7 +50,7 @@
             text-align: left;
             font-size: 28px;
             font-family: 'Segoe UI', 'Arial', 'sans-serif';
-            font-weight: 400;
+            font-weight: 100;
             color: white;
             text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
             z-index: 2;
@@ -57,7 +67,6 @@
         
         .bottom_label {
             position: absolute;
-            width: 700px;
             bottom: 25px;
             left: 50%;
             transform: translateX(-50%);
@@ -74,10 +83,10 @@
             <div class="content_child">
                 <div class="header_label">Gallery</div>
             </div>
-            
-            <div class="bottom_label">
-                NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.
-            </div>
+        </div>
+        
+        <div class="bottom_label">
+            NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.
         </div>
     </body>
 </html>

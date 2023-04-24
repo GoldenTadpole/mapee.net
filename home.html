@@ -12,11 +12,21 @@
     })(window,document.documentElement,'async-hide','dataLayer',50,
     {'CONTAINER_ID':true});</script>
 
-    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="scripts/version-info.js"></script>
+    <script type="text/javascript" src="scripts/banner.js"></script>
     <script>
         $(function(){
             $("#base_page").load("banner_nav.html");
         });
+    </script>
+    <script>
+        window.onload = window_onload;
+
+        async function window_onload() {
+            const info = await loadXml("info/installer-info.xml");
+            setUpperVersionLabel(info);
+        }
     </script>
 
     <style>
@@ -74,7 +84,6 @@
 
         .bottom_label {
             position: absolute;
-            width: 700px;
             bottom: 25px;
             left: 50%;
             transform: translateX(-50%);
@@ -100,10 +109,10 @@
 
                 <div class="header_label">Sample images</div>
             </div>
-            
-            <div class="bottom_label">
-                NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.
-            </div>
+        </div>
+
+        <div class="bottom_label">
+            NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.
         </div>
     </body>
 </html>
