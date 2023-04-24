@@ -57,6 +57,30 @@
             color: white;
             text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
             z-index: 2;
+            margin: 0px 0px 20px 0px;
+        }
+
+        .download_info_label {
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+            font-family: 'Segoe UI', 'Arial', 'sans-serif';
+            font-weight: 500;
+            color: white;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+            z-index: 2;
+            margin: 0px 0px 0px 0px;
+        }
+        .download_info_more {
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+            font-family: 'Segoe UI', 'Arial', 'sans-serif';
+            font-weight: 100;
+            color: white;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+            z-index: 2;
+            margin: 0px 0px 0px 20px;
         }
 
         #download_nav_button {
@@ -77,7 +101,7 @@
             font-size: 18px;
             position: absolute;
             left: 0;
-            margin: 40px 0px;
+            margin: 20px 0px;
         }
         #download_button:hover {
             background-color: #1D3923;
@@ -96,7 +120,26 @@
         <div class="content">
             <div class="content_child">
                 <div class="header_label">Download</div>
-                <button id="download_button">Installer for Windows 10/11 x64<br>(64.5 mb)</button>
+                <div class="download_info_label">
+                    Installer info:
+                </div>
+                <div class="download_info_more">
+                    Version: 1.0.0<br>
+                    Released on April 24th, 2023
+                </div>>
+                <div class="download_info_label">
+                    Requirements:
+                </div>
+                <div class="download_info_more">
+                    64-bit Windows 10 or higher<br>
+                    4 GB of RAM or more
+                </div>>
+                <button id="download_button">
+                    <img src="asset\download_icon.png" alt="Download" style="position: absolute; top: 50%; transform: translateY(-50%); left: 18px;">
+                    <div style="margin-left: 28px;">
+                        Installer for Windows x64<br>(64.5 mb)
+                    </div>
+                </button>
             </div>
         </div>
     </body>
