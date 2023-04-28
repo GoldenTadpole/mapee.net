@@ -36,7 +36,7 @@
         }
 
         .content_child {
-            height: 500px;
+            height: 1200px;
             position: relative;
             top: 10px;
             left: 15px;
@@ -54,6 +54,19 @@
             margin-top: 20px;
         }
 
+        .sub_header_label {
+            width: 100%;
+            text-align: left;
+            font-size: 24px;
+            font-family: 'Segoe UI', 'Arial', 'sans-serif';
+            font-weight: 500;
+            color: white;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+            z-index: 2;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
         #wiki_nav_button {
             background-color: #354249;
         }
@@ -61,7 +74,64 @@
             background-color: #B2DAF4;
             color: black;
         }
-        
+
+        .description_label {
+            width: 970px;
+            text-align: left;
+            font-size: 19px;
+            font-family: 'Segoe UI', 'Arial', 'sans-serif';
+            color:white;
+            word-wrap: break-all;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .list_label {
+            width: 915px;
+            text-align: left;
+            font-size: 19px;
+            font-family: 'Segoe UI', 'Arial', 'sans-serif';
+            color: white;
+            margin: 0px 0px 0px 56px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .sub_list_label {
+            width: 887px;
+            text-align: left;
+            font-size: 19px;
+            font-family: 'Segoe UI', 'Arial', 'sans-serif';
+            color: white;
+            margin: 5px 0px 0px 84px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        p { 
+            text-indent: 30px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .sub_sub_title {
+            text-decoration: underline;
+            line-height: 50px;
+        }
+
+        .list_entry {
+            color: orange;
+            margin-right: 5px;
+        }
+
+        .y_entry {
+            font-weight: 500;
+        }
+
+        .heightmap_entry {
+            color: lightgray;
+        }
+
         .bottom_label {
             position: absolute;
             width: 700px;
@@ -79,7 +149,52 @@
 
         <div class="content">
             <div class="content_child">
-                <div class="header_label">Wiki</div>
+                <div class="header_label">How it works? The three stages.</div>
+
+                <div class="sub_header_label">First stage, chunk reading:</div>
+                <div class="description_label">
+                    <p>Mapee only reads chunks which are saved in single-player worlds. It converts them to the newest version in memory. The world files do NOT get modified.
+                        It can load worlds from beta 1.3 to most recent version. There are plans to also include pre-1.3 beta worlds.</p>
+                </div>
+
+                <br>
+                <div class="sub_header_label">Second stage, scanning:</div>
+                <div class="description_label">
+                    <span class="sub_sub_title">Columns:</span>
+                    <p>Mapee uses a top-down scanning technique. Each chunk contains 256 columns (one for each block on the horizontal plane).
+                    There are three types of blocks:</p>
+                </div>
+                <div class="list_label">
+                    <span class="list_entry">1)</span> Ignored, e.g. air.<br>
+                    <span class="list_entry">2)</span> Transparent, e.g. water, leaves, glass.<br>
+                    <span class="list_entry">3)</span> Solid, e.g. stone, grass block, wood.<br>
+                </div>
+                <div class="description_label">
+                    <p>If the scanner hits a solid block, the column is said to be 'finished', it will not be scanned further.</p>
+                    <span class="sub_sub_title">Y level:</span>
+                    <p>The scanner has to choose the Y level from which to start scanning the column; there are 2 configurations:</p>
+                </div>
+                <div class="list_label">
+                    <span class="list_entry">1)</span> <span class="y_entry">Set Y</span> - This is the simplest one. Say it's set to Y = 70, that means for all chunks, anything above Y level of 70 will be ignored. It's how 'layered' rendering can be done. Nether & The End uses this configuration.<br>
+                    <span class="list_entry">2)</span> <span class="y_entry">Heightmap</span> - Heightmaps store the Y level of the highest block for each column, that meets a certain specifiction. Mapee uses 4 such heightmaps:
+                </div>
+                <div class="sub_list_label">
+                    <span class="heightmap_entry">WORLD_SURFACE</span> - Highest non-air block. The default heightmap.<br>
+                    <span class="heightmap_entry">OCEAN_FLOOR</span> - Higest motion blocking block. Can be used to render ocean floors efficiently.<br>
+                    <span class="heightmap_entry">MOTION_BLOCKING</span> - Highest motion blocking block, except it stores water, lava & waterlogged blocks.<br>
+                    <span class="heightmap_entry">MOTION_BLOCKING_NO_LEAVES</span> - Similar to the previous one, except leaves of all types are ignored.
+                </div>
+
+                <div class="description_label">
+                    <span class="sub_sub_title">Block filter:</span>
+                    <p>As the scanner goes through each block in the column, it has to know which of the three types apply to it. This opportunity can the employed to filter certain blocks for more interesting block formations.</p>
+                </div>
+
+                <br>
+                <div class="sub_header_label">Third stage, rendering:</div>
+                <div class="description_label">
+                    <p>This stage is perhaps the most complicated one. Each column is represented by one pixel.</p>
+                </div>
             </div>
             
             <div class="bottom_label">
