@@ -40,7 +40,7 @@
         }
 
         .content_child {
-            height: 1200px;
+            height: 1400px;
             position: relative;
             top: 10px;
             left: 15px;
@@ -157,21 +157,21 @@
 
                 <div class="sub_header_label">First stage, chunk reading:</div>
                 <div class="description_label">
-                    <p>Mapee only reads chunks which are saved in single-player worlds. It converts them to the newest version in memory. The world files do NOT get modified.
-                        It can load worlds from beta 1.3 to most recent version. There are plans to also include pre-1.3 beta worlds.</p>
+                    <p>Mapee only reads chunks that are saved in single-player worlds. The mapper converts them to the latest version in its memory. The world files remain <u>unmodified</u>.
+                        Mapee is capable of loading worlds from beta 1.3 up to the most recent version. Future plans involve the addition of pre-1.3 beta worlds as well.</p>
                 </div>
 
                 <br>
                 <div class="sub_header_label">Second stage, scanning:</div>
                 <div class="description_label">
                     <span class="sub_sub_title">Columns:</span>
-                    <p>Mapee uses a top-down scanning technique. Each chunk contains 256 columns (one for each block on the horizontal plane).
+                    <p>Mapee uses a top-down scanning technique. Each chunk comprises 256 columns, with each column representing a block on the horizontal plane.
                     There are three types of blocks:</p>
                 </div>
                 <div class="list_label">
-                    <span class="list_entry">1)</span> Ignored, e.g. air.<br>
-                    <span class="list_entry">2)</span> Transparent, e.g. water, leaves, glass.<br>
-                    <span class="list_entry">3)</span> Solid, e.g. stone, grass block, wood.<br>
+                    <span class="list_entry">1)</span> <span class="y_entry">Ignored</span>, e.g. air.<br>
+                    <span class="list_entry">2)</span> <span class="y_entry">Transparent</span>, e.g. water, leaves, glass.<br>
+                    <span class="list_entry">3)</span> <span class="y_entry">Solid</span>, e.g. stone, grass block, wood.<br>
                 </div>
                 <div class="description_label">
                     <p>If the scanner hits a solid block, the column is said to be 'finished', it will not be scanned further.</p>
@@ -197,7 +197,16 @@
                 <br>
                 <div class="sub_header_label">Third stage, rendering:</div>
                 <div class="description_label">
-                    <p>This stage is perhaps the most complicated one. Each column is represented by one pixel.</p>
+                    <p>This stage is perhaps the most complicated one. Each column is represented by one pixel. Blocks inside columns get painted in a top-down fashion.</p>
+                    <p>There are 5 steps when it comes to painting a block, say we want to get the output color:</p>
+                </div>
+
+                <div class="list_label">
+                    <span class="list_entry">1)</span> Fetch the plain block color.<br>
+                    <span class="list_entry">2)</span> If a block is affected by biomes, combine the plain color with the biome color. Note, biomes before 1.2 are not saved in chunks and therefore, Mapee will default to the <span class="heightmap_entry">minecraft:plains</span> biome.<br>
+                    <span class="list_entry">3)</span> Get the sky light and block light values, combine them into one. Darken the output color (from step 2) based on the light intensity.<br>
+                    <span class="list_entry">4)</span> Change block hue and its brightness depending on the altitude (Y value).<br>
+                    <span class="list_entry">5)</span> If neighboring blocks are above the current one (i.e. if the <u>step</u> is negative), darken the output color; if above, lighten it.
                 </div>
             </div>
             
