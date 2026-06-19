@@ -33,7 +33,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'GitHub', route: '/github' }
 ];
 
-export const BANNER_TAGS = ['Datapack support', 'Alpha to 26.1', '15 styles', 'Block filters'];
+export const BANNER_TAGS = ['Datapack support', 'Alpha to 26.2', '15 styles', 'Block filters'];
 
 export const BANNER_IMAGE_PATHS = Array.from(
   { length: 15 },
@@ -56,9 +56,9 @@ export const ROADMAP_ITEMS: RoadmapItem[] = [
   },
   {
     timeline: 'Current',
-    version: 'Version 1.1.0',
+    version: 'Version 1.2.0',
     description:
-      'Windows installer for rendering local Minecraft Java worlds from Alpha to 26.1 without modifying world files.'
+      'Windows installer for rendering local Minecraft Java worlds from Alpha to 26.2 without modifying world files.'
   }
 ];
 
