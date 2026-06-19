@@ -1,0 +1,31 @@
+:host {
+  display: inline-flex;
+}
+
+.minecraft-link-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 3px solid #151515;
+  border-radius: 0;
+  background: #3f3f3f;
+  box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.14), inset -2px -2px 0 rgba(0, 0, 0, 0.38);
+  color: #efefef;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 900;
+  padding: 10px 13px;
+  text-decoration: none;
+  transition: transform 80ms ease, background-color 120ms ease, color 120ms ease;
+}
+
+.minecraft-link-button:hover {
+  background-color: #6a6a6a;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.minecraft-link-button:active {
+  transform: translateY(1px);
+}

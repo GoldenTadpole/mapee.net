@@ -1,0 +1,22 @@
+.wiki-section {
+  max-width: 860px;
+  border-top: 1px solid rgba(229, 235, 225, 0.22);
+  padding: 18px 0;
+}
+
+.wiki-section h2 {
+  margin: 0 0 8px;
+  color: #e5ebe1;
+  font-size: 20px;
+}
+
+.wiki-section p {
+  margin: 8px 0;
+  color: #d9e8d2;
+  line-height: 1.65;
+}
+
+.compact-list {
+  width: 100%;
+  margin: 10px 0;
+}

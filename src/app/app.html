@@ -1,0 +1,54 @@
+<canvas #terrainBackground class="terrain-page-background" aria-hidden="true"></canvas>
+<div class="terrain-background-veil" aria-hidden="true"></div>
+
+<div #siteScale class="site-scale">
+  <div #siteScaleInner class="site-scale-inner">
+    <header class="banner">
+      <div class="crop">
+        <div class="banner-collage" aria-hidden="true">
+          @for (slide of bannerSlides; track slide.imageUrl; let first = $first) {
+            <div
+              class="sample-image"
+              [class.sample-image-active]="first"
+              [style.--banner-image]="slide.imageUrl"
+              [style.--banner-animation-delay]="slide.animationDelay"
+              [style.--banner-position]="slide.position"
+            ></div>
+          }
+        </div>
+        <div class="banner-copy">
+          <div class="title-row">
+            <div class="title-label">Mapee</div>
+            <div class="title-version-label">@if (version$ | async; as version) { v{{ version }} }</div>
+          </div>
+          <div class="title-description-label">
+            Fast top-down Minecraft world renders, filters, measuring tools, and map styles for exploring saved worlds.
+          </div>
+          <div class="banner-tags" aria-label="Mapee highlights">
+            @for (tag of bannerTags; track tag) {
+              <span>{{ tag }}</span>
+            }
+          </div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        @for (item of navItems; track item.route) {
+          <a
+            [routerLink]="item.route"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="item.exact ?? { exact: false }"
+          >{{ item.label }}</a>
+        }
+      </nav>
+    </header>
+
+    <main class="content">
+      <router-outlet />
+    </main>
+
+    <footer class="bottom-label">
+      <span>NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.</span>
+    </footer>
+  </div>
+</div>

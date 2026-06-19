@@ -1,0 +1,14 @@
+.roadmap-list {
+  display: grid;
+  gap: 14px;
+  max-width: 760px;
+}
+
+.timeline-chip {
+  display: inline-flex;
+  padding: 0;
+  color: #cfe0c6;
+  font-size: 13px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}

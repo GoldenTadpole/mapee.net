@@ -1,0 +1,14 @@
+<app-page-shell
+  title="Roadmap"
+  intro="Mapee is moving toward broader platform support, more world formats, and richer render output."
+>
+  <div class="roadmap-list">
+    @for (item of roadmapItems; track item.version) {
+      <article class="roadmap-card">
+        <span class="timeline-chip">{{ item.timeline }}</span>
+        <h2>{{ item.version }}</h2>
+        <p>{{ item.description }}</p>
+      </article>
+    }
+  </div>
+</app-page-shell>

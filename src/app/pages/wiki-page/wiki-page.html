@@ -1,0 +1,50 @@
+<app-page-shell
+  title="How Mapee renders a world"
+  intro="The mapper turns chunk data into a readable top-down image through chunk loading, column scanning, and pixel rendering."
+  [tall]="true"
+>
+  <article class="wiki-section">
+    <h2>1. Chunk reading</h2>
+    <p>Mapee only reads chunks that are saved in single-player worlds. The mapper converts them to the latest version in its memory. The world files remain <u>unmodified</u>. Mapee is capable of loading and rendering worlds from Alpha to 26.1.</p>
+  </article>
+
+  <article class="wiki-section">
+    <h2>2. Scanning</h2>
+    <span class="sub-sub-title">Columns:</span>
+    <p>Mapee uses a top-down scanning technique. Each chunk comprises 256 columns, with each column representing a block on the horizontal plane. There are three types of blocks:</p>
+    <div class="list-label compact-list">
+      <span class="list-entry">1)</span> <span class="y-entry">Ignored</span>, e.g. air.<br>
+      <span class="list-entry">2)</span> <span class="y-entry">Transparent</span>, e.g. water, leaves, glass.<br>
+      <span class="list-entry">3)</span> <span class="y-entry">Solid</span>, e.g. stone, grass block, wood.<br>
+    </div>
+    <p>If the scanner hits a solid block, the column is said to be 'finished', it will not be scanned further.</p>
+    <span class="sub-sub-title">Y level:</span>
+    <p>The scanner has to choose the Y level from which to start scanning the column; there are 2 configurations:</p>
+    <div class="list-label compact-list">
+      <span class="list-entry">1)</span> <span class="y-entry">Set Y</span> - Anything above the chosen Y level is ignored, which enables layered rendering for Nether and The End.<br>
+      <span class="list-entry">2)</span> <span class="y-entry">Heightmap</span> - Heightmaps store the Y level of the highest block for each column.
+    </div>
+    <div class="sub-list-label compact-list">
+      <span class="heightmap-entry">WORLD_SURFACE</span> - Highest non-air block.<br>
+      <span class="heightmap-entry">OCEAN_FLOOR</span> - Higest motion blocking block.<br>
+      <span class="heightmap-entry">MOTION_BLOCKING</span> - Highest motion blocking block, including water, lava, and waterlogged blocks.<br>
+      <span class="heightmap-entry">MOTION_BLOCKING_NO_LEAVES</span> - Similar, but leaves are ignored.
+    </div>
+    <span class="sub-sub-title">Block filter:</span>
+    <p>As the scanner goes through each block in the column, it has to know which of the three types apply to it. This opportunity can the employed to filter certain blocks for more interesting block formations.</p>
+  </article>
+
+  <article class="wiki-section">
+    <h2>3. Rendering</h2>
+    <p>This stage is perhaps the most complicated one. Each column is represented by one pixel. Blocks inside columns get painted in a top-down fashion.</p>
+    <p>There are 5 steps when it comes to painting a block, say we want to get the output color:</p>
+
+    <div class="list-label compact-list">
+      <span class="list-entry">1)</span> Fetch the plain block color.<br>
+      <span class="list-entry">2)</span> Combine biome-aware blocks with biome color. Before 1.2, Mapee defaults to <span class="heightmap-entry">minecraft:plains</span> biome.<br>
+      <span class="list-entry">3)</span> Combine sky light and block light, then darken the color based on intensity.<br>
+      <span class="list-entry">4)</span> Adjust hue and brightness by altitude.<br>
+      <span class="list-entry">5)</span> Darken or lighten based on neighboring block steps.
+    </div>
+  </article>
+</app-page-shell>

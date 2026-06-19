@@ -1,0 +1,55 @@
+@if (currentSample; as sample) {
+  <div class="sample-slideshow" aria-label="Mapee sample renders">
+    <button
+      class="sample-image-button"
+      type="button"
+      (click)="openExpandedImage()"
+      aria-label="Expand sample render"
+    >
+      <img [src]="sample.src" [alt]="sample.alt" class="slide">
+    </button>
+
+    <button
+      class="slide-control slide-control-left"
+      type="button"
+      (click)="showPreviousSample()"
+      aria-label="Previous sample render"
+    ></button>
+    <button
+      class="slide-control slide-control-right"
+      type="button"
+      (click)="showNextSample()"
+      aria-label="Next sample render"
+    ></button>
+  </div>
+
+  <dialog
+    #expandedDialog
+    class="expanded-sample"
+    aria-label="Expanded sample render"
+    (click)="closeExpandedImageFromBackdrop($event)"
+    (cancel)="closeExpandedImage()"
+  >
+    <div class="expanded-frame">
+      <img [src]="sample.src" [alt]="sample.alt">
+      <button
+        class="expanded-close"
+        type="button"
+        (click)="closeExpandedImage()"
+        aria-label="Close expanded sample render"
+      >X</button>
+      <button
+        class="slide-control expanded-control expanded-control-left"
+        type="button"
+        (click)="showPreviousSample()"
+        aria-label="Previous sample render"
+      ></button>
+      <button
+        class="slide-control expanded-control expanded-control-right"
+        type="button"
+        (click)="showNextSample()"
+        aria-label="Next sample render"
+      ></button>
+    </div>
+  </dialog>
+}

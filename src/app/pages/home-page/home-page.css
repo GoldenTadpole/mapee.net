@@ -1,0 +1,23 @@
+.home-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1.1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.home-description {
+  max-width: 520px;
+  color: #d7dfd2;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.home-description p {
+  margin: 0 0 16px;
+}
+
+@media (max-width: 800px) {
+  .home-layout {
+    grid-template-columns: 1fr;
+  }
+}

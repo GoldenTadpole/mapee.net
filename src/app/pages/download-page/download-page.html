@@ -1,0 +1,17 @@
+<app-page-shell
+  title="Download Mapee"
+  intro="Get the Windows installer and start rendering local Minecraft worlds from Alpha to 26.1. Mapee does not modify your world files."
+>
+  @if (info$ | async; as info) {
+    <div class="download-layout">
+      <section class="download-panel">
+        <h2>{{ info.buttonText }}</h2>
+        <p>Version {{ info.version }} · {{ formatSize(info.fileSize) }} · {{ formatDate(info.releaseDate) }}</p>
+        <app-minecraft-link-button class="download-button" [href]="info.url" [download]="true">
+          <img src="asset/download_icon.png" alt="" aria-hidden="true">
+          <span>Download installer</span>
+        </app-minecraft-link-button>
+      </section>
+    </div>
+  }
+</app-page-shell>
