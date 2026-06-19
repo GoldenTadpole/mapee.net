@@ -84,6 +84,7 @@
 .sample-image {
 	--banner-image: none;
 	--banner-animation-delay: 0s;
+	--banner-animation-duration: 67.5s;
 	--banner-position: 50% 50%;
 	position: absolute;
 	inset: -2px;
@@ -99,7 +100,7 @@
 	background-position: 0 0, 0 0, var(--banner-position);
 	image-rendering: auto;
 	opacity: 0;
-	animation: banner-image-cycle 18s ease-in-out infinite;
+	animation: banner-image-cycle var(--banner-animation-duration) ease-in-out infinite;
 	animation-delay: var(--banner-animation-delay);
 }
 
@@ -113,13 +114,13 @@
 		transform: scale(1.015);
 	}
 
-	8%,
-	33% {
+	2.13%,
+	8.8% {
 		opacity: 1;
 		transform: scale(1.03);
 	}
 
-	41%,
+	10.93%,
 	100% {
 		opacity: 0;
 		transform: scale(1.055);

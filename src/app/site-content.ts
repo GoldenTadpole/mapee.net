@@ -11,6 +11,7 @@ export interface NavItem {
 export interface BannerSlide {
   imageUrl: string;
   animationDelay: string;
+  animationDuration: string;
   position: string;
 }
 
@@ -41,6 +42,8 @@ export const BANNER_IMAGE_PATHS = Array.from(
 );
 
 export const BANNER_SLIDE_POSITIONS = ['50% 52%', '50% 48%', '50% 48%', '50% 50%'];
+
+export const BANNER_SLIDE_SECONDS = 4.5;
 
 export const HOME_SAMPLES: SampleRender[] = Array.from({ length: 9 }, (_, index) => ({
   src: `asset/home_slideshow/${index}.png`,

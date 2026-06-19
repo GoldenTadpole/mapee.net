@@ -6,6 +6,7 @@ import { filter } from 'rxjs';
 import { InstallerInfoService } from './installer-info.service';
 import {
   BANNER_IMAGE_PATHS,
+  BANNER_SLIDE_SECONDS,
   BANNER_SLIDE_POSITIONS,
   BANNER_TAGS,
   BannerSlide,
@@ -55,10 +56,13 @@ export class App implements AfterViewInit, OnDestroy {
   }
 
   private buildBannerSlides(): BannerSlide[] {
+    const animationDuration = `${BANNER_IMAGE_PATHS.length * BANNER_SLIDE_SECONDS}s`;
+
     return buildImageSequence(BANNER_IMAGE_PATHS, BANNER_IMAGE_PATHS.length).map((image, index) => ({
       imageUrl: `url(${image})`,
-      animationDelay: `${-1.44 + index * 4.5}s`,
-      position: BANNER_SLIDE_POSITIONS[index]
+      animationDelay: `${-1.44 + index * BANNER_SLIDE_SECONDS}s`,
+      animationDuration,
+      position: BANNER_SLIDE_POSITIONS[index % BANNER_SLIDE_POSITIONS.length]
     }));
   }
 
