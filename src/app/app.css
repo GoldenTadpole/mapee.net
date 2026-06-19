@@ -147,7 +147,7 @@
 	width: min(500px, calc(100% - 70px));
 	text-align: left;
 	color: white;
-	text-shadow: 3px 3px 0 #000;
+	text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.72);
 	z-index: 3;
 }
 
@@ -201,6 +201,7 @@
 	color: #f6ffe8;
 	font-size: 13px;
 	font-weight: 900;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.45);
 }
 
 nav {
