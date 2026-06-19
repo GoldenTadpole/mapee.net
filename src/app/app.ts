@@ -55,7 +55,7 @@ export class App implements AfterViewInit, OnDestroy {
   }
 
   private buildBannerSlides(): BannerSlide[] {
-    return buildImageSequence(BANNER_IMAGE_PATHS, 4).map((image, index) => ({
+    return buildImageSequence(BANNER_IMAGE_PATHS, BANNER_IMAGE_PATHS.length).map((image, index) => ({
       imageUrl: `url(${image})`,
       animationDelay: `${-1.44 + index * 4.5}s`,
       position: BANNER_SLIDE_POSITIONS[index]
